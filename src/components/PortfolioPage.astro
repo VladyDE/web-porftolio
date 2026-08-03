@@ -1,0 +1,212 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from './Icon.astro';
+import {
+  certifications,
+  copy,
+  education,
+  experience,
+  profile,
+  projects,
+  type Locale,
+  type TimelineEntry,
+} from '../data/portfolio';
+
+interface Props { lang: Locale }
+
+const { lang } = Astro.props;
+const t = copy[lang];
+const otherLang: Locale = lang === 'es' ? 'en' : 'es';
+const pageTitle = `${profile.name} — ${profile.role[lang]}`;
+const pageDescription = lang === 'es'
+  ? 'Portafolio de ingeniería de datos: proyectos, experiencia, formación y certificaciones cloud.'
+  : 'Data engineering portfolio: projects, experience, education, and cloud certifications.';
+
+const timeline = (items: TimelineEntry[]) => items.map((item) => ({
+  ...item,
+  localizedTitle: item.title[lang],
+  localizedPeriod: item.period[lang],
+  localizedDescription: item.description[lang],
+}));
+---
+
+<BaseLayout lang={lang} title={pageTitle} description={pageDescription} canonicalPath={`/${lang}/`}>
+  <a class="skip-link" href="#main">{t.skip}</a>
+  <div class="ambient-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href={`/${lang}/`} aria-label={`${profile.name} — ${profile.role[lang]}`}>
+      <span class="brand-mark"><Icon name="database" size={18} /></span>
+      <span>{profile.name}</span>
+    </a>
+    <nav class="primary-nav" aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
+      <a href="#about">{t.nav.about}</a>
+      <a href="#projects">{t.nav.projects}</a>
+      <a href="#certifications">{t.nav.certifications}</a>
+      <a href="#experience">{t.nav.experience}</a>
+      <a href="#education">{t.nav.education}</a>
+    </nav>
+    <a class="language-switch" href={`/${otherLang}/`} data-language={otherLang} aria-label={t.switchLabel}>
+      <span>{t.languageName}</span>
+      <span class="switch-track" aria-hidden="true"><span></span></span>
+      <span>{otherLang.toUpperCase()}</span>
+    </a>
+  </header>
+  <a class="mobile-language-switch" href={`/${otherLang}/`} data-language={otherLang} aria-label={t.switchLabel}>
+    <span>{t.languageName}</span>
+    <span class="switch-track" aria-hidden="true"><span></span></span>
+    <span>{otherLang.toUpperCase()}</span>
+  </a>
+
+  <main id="main">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow hero-step">{t.eyebrow}</p>
+        <div class="availability hero-step"><span></span>{t.available}</div>
+        <h1 id="hero-title" class="hero-step">
+          <span>{profile.name}</span>
+          <strong>{profile.role[lang]}</strong>
+        </h1>
+        <p class="hero-lead hero-step">{t.heroLead}</p>
+        <a class="button hero-step" href="#projects">
+          {t.viewProjects}<Icon name="arrow" />
+        </a>
+      </div>
+
+      <div class="portrait-panel hero-step">
+        <div class="panel-meta"><span>INPUT_01</span><span>PORTRAIT.JPG</span></div>
+        <Image src={profile.portrait} alt={lang === 'es' ? `Retrato de ${profile.name}` : `Portrait of ${profile.name}`} widths={[480, 720]} sizes="(max-width: 900px) 80vw, 38vw" />
+        <div class="portrait-caption">
+          <span>{profile.location}</span>
+          <span>04°39′N / 74°05′W</span>
+        </div>
+      </div>
+      <div class="hero-index" aria-hidden="true">00</div>
+    </section>
+
+    <div class="pipeline" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <section id="about" class="content-section section-shell reveal" aria-labelledby="about-title">
+      <div class="section-heading">
+        <p class="section-kicker">{t.aboutKicker}</p>
+        <h2 id="about-title">{t.about}</h2>
+      </div>
+      <div class="about-content">
+        <p class="about-lead">{t.aboutText}</p>
+        <div class="stats-grid">
+          {t.stats.map(([value, label]) => (
+            <div class="stat"><strong>{value}</strong><span>{label}</span></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="content-section section-shell reveal" aria-labelledby="projects-title">
+      <div class="section-heading section-heading-row">
+        <div><p class="section-kicker">{t.projectsKicker}</p><h2 id="projects-title">{t.projects}</h2></div>
+        <p class="section-note">{t.projectHint}</p>
+      </div>
+      <div class="projects-grid">
+        {projects.map((project, index) => (
+          <article class="project-card">
+            <a class="project-image" href={project.repoUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.openRepo} ${project.title[lang]}`}>
+              <Image src={project.image} alt={project.imageAlt[lang]} widths={[480, 720, 960]} sizes="(max-width: 760px) 100vw, 50vw" loading="lazy" />
+              <span class="project-number">0{index + 1}</span>
+              <span class="repo-cue">GitHub <Icon name="arrow" /></span>
+            </a>
+            <div class="project-body">
+              <h3>{project.title[lang]}</h3>
+              <p>{project.description[lang]}</p>
+              <ul class="tag-list" aria-label="Technology stack">
+                {project.stack.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="certifications" class="content-section section-shell reveal" aria-labelledby="certifications-title">
+      <div class="cert-intro">
+        <div class="section-heading"><p class="section-kicker">{t.certificationsKicker}</p><h2 id="certifications-title">{t.certifications}</h2></div>
+        <p>{t.certificationText}</p>
+      </div>
+      <ul class="cert-grid">
+        {certifications.map((certification) => (
+          <li class="cert-card" title={`${certification.name} — ${certification.issuer}`}>
+            <Image src={certification.logo} alt={`${certification.name}, ${certification.issuer}`} loading="lazy" />
+            <span class="sr-only">{certification.name} — {certification.issuer}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="experience" class="content-section section-shell reveal" aria-labelledby="experience-title">
+      <div class="section-heading"><p class="section-kicker">{t.experienceKicker}</p><h2 id="experience-title">{t.experience}</h2></div>
+      <div class="timeline">
+        {timeline(experience).map((item, index) => (
+          <article class="timeline-item">
+            <div class="timeline-marker"><span>0{index + 1}</span></div>
+            <div class="timeline-date">{item.localizedPeriod}</div>
+            <div class="timeline-body">
+              <p class="organization">{item.organization}</p>
+              <h3>{item.localizedTitle}</h3>
+              <p>{item.localizedDescription}</p>
+              {item.tags && <ul class="tag-list">{item.tags.map((tag) => <li>{tag}</li>)}</ul>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="education" class="content-section section-shell reveal" aria-labelledby="education-title">
+      <div class="section-heading"><p class="section-kicker">{t.educationKicker}</p><h2 id="education-title">{t.education}</h2></div>
+      <div class="timeline compact">
+        {timeline(education).map((item, index) => (
+          <article class="timeline-item">
+            <div class="timeline-marker"><span>0{index + 1}</span></div>
+            <div class="timeline-date">{item.localizedPeriod}</div>
+            <div class="timeline-body">
+              <p class="organization">{item.organization}</p>
+              <h3>{item.localizedTitle}</h3>
+              <p>{item.localizedDescription}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <div>
+      <p class="section-kicker">OUTPUT / CONNECT</p>
+      <h2>{t.connect}</h2>
+    </div>
+    <div class="social-block">
+      <span>{t.socialHint}</span>
+      <div class="social-links">
+        <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" size={24} /></a>
+        <a href={profile.social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Icon name="github" size={24} /></a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© {new Date().getFullYear()} {profile.name}</span><span>{t.rights}</span></div>
+  </footer>
+
+  <script is:inline>
+    document.querySelectorAll('[data-language]').forEach((link) => {
+      link.addEventListener('click', () => localStorage.setItem('portfolio-language', link.getAttribute('data-language')));
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</BaseLayout>

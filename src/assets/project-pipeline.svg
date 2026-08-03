@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <defs><linearGradient id="a" x2="1" y2="1"><stop stop-color="#252825"/><stop offset="1" stop-color="#111211"/></linearGradient></defs>
+  <rect width="960" height="600" fill="url(#a)"/><g fill="none" stroke="#555b56" stroke-width="2"><path d="M0 120h960M0 300h960M0 480h960"/><path d="M160 0v600M480 0v600M800 0v600"/></g>
+  <g fill="#1d1f1e" stroke="#f6d365" stroke-width="3"><rect x="75" y="238" width="180" height="124"/><rect x="390" y="238" width="180" height="124"/><rect x="705" y="238" width="180" height="124"/></g>
+  <g stroke="#f6d365" stroke-width="5"><path d="M255 300h135M570 300h135"/></g><g fill="#f6d365"><path d="m375 285 20 15-20 15zM690 285l20 15-20 15z"/></g>
+  <g fill="#f5f5f0" font-family="monospace" font-size="22" text-anchor="middle"><text x="165" y="307">INGEST</text><text x="480" y="307">TRANSFORM</text><text x="795" y="307">SERVE</text></g>
+  <text x="48" y="65" fill="#a7aaa5" font-family="monospace" font-size="19">PROJECT_01 / DATA PIPELINE</text>
+</svg>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  lang="es"
+  title="Select language / Selecciona el idioma"
+  description="Choose the language for this data engineering portfolio. Selecciona el idioma del portafolio."
+  canonicalPath="/"
+>
+  <main class="language-gate">
+    <div class="gate-grid" aria-hidden="true"></div>
+    <div class="gate-shell">
+      <div class="gate-status">
+        <span class="status-dot"></span>
+        <span>LANGUAGE_PROTOCOL / 01</span>
+      </div>
+      <div class="gate-content">
+        <p class="gate-kicker">PORTFOLIO INITIALIZATION</p>
+        <h1><span>Select your language.</span><strong>Selecciona tu idioma.</strong></h1>
+        <p class="gate-description">Your browser preference has been detected. You can change the language at any time from the navigation bar.</p>
+      </div>
+      <div class="language-options" aria-label="Language selection">
+        <a href="/es/" data-select-language="es">
+          <span class="language-code">ES</span>
+          <span><strong>Español</strong><small>Continuar en español</small></span>
+          <span class="option-arrow">→</span>
+        </a>
+        <a href="/en/" data-select-language="en">
+          <span class="language-code">EN</span>
+          <span><strong>English</strong><small>Continue in English</small></span>
+          <span class="option-arrow">→</span>
+        </a>
+      </div>
+      <div class="gate-footer"><span>DATA_ENGINEER.PORTFOLIO</span><span id="detected-language">DETECTING...</span></div>
+    </div>
+  </main>
+
+  <script is:inline>
+    const savedLanguage = localStorage.getItem('portfolio-language');
+    if (savedLanguage === 'es' || savedLanguage === 'en') {
+      window.location.replace(`/${savedLanguage}/`);
+    } else {
+      const detectedLanguage = navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en';
+      const preferredOption = document.querySelector(`[data-select-language="${detectedLanguage}"]`);
+      preferredOption?.classList.add('is-detected');
+      preferredOption?.setAttribute('aria-describedby', 'detected-language');
+      const status = document.querySelector('#detected-language');
+      if (status) status.textContent = `DETECTED: ${detectedLanguage.toUpperCase()}`;
+    }
+
+    document.querySelectorAll('[data-select-language]').forEach((link) => {
+      link.addEventListener('click', () => localStorage.setItem('portfolio-language', link.getAttribute('data-select-language')));
+    });
+  </script>
+</BaseLayout>

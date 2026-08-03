@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <rect width="960" height="600" fill="#151715"/><g fill="none" stroke="#f6d365" stroke-width="3"><ellipse cx="480" cy="175" rx="250" ry="82"/><path d="M230 175v230c0 45 112 82 250 82s250-37 250-82V175M230 290c0 45 112 82 250 82s250-37 250-82"/></g>
+  <g fill="#f6d365"><circle cx="315" cy="230" r="9"/><circle cx="542" cy="110" r="9"/><circle cx="650" cy="330" r="9"/><circle cx="425" cy="435" r="9"/></g>
+  <g fill="#a7aaa5" font-family="monospace" font-size="17"><text x="48" y="65">PROJECT_03 / LAKEHOUSE</text><text x="410" y="185">DATA LAYERS</text></g>
+</svg>

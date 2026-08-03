@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#262927"/><stop offset="1" stop-color="#111211"/></linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0v44" fill="none" stroke="#f6d365" stroke-opacity=".09"/></pattern>
+  </defs>
+  <rect width="720" height="900" fill="url(#bg)"/><rect width="720" height="900" fill="url(#grid)"/>
+  <circle cx="360" cy="330" r="128" fill="#3b3f3c"/>
+  <path d="M130 900c18-225 94-344 230-344s212 119 230 344" fill="#343835"/>
+  <path d="M184 725h352" stroke="#f6d365" stroke-width="3" stroke-dasharray="14 10" opacity=".7"/>
+  <text x="40" y="64" fill="#f6d365" font-family="monospace" font-size="20">PORTRAIT_INPUT_01</text>
+  <text x="360" y="842" fill="#a7aaa5" font-family="monospace" font-size="17" text-anchor="middle">REPLACE WITH YOUR PHOTO</text>
+</svg>

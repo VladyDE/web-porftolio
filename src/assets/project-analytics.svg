@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+  <rect width="960" height="600" fill="#171917"/><path d="M0 520 170 390l155 55 190-238 148 86 150-169 147 83v393H0z" fill="#f6d365" opacity=".12"/>
+  <path d="m0 520 170-130 155 55 190-238 148 86 150-169 147 83" fill="none" stroke="#f6d365" stroke-width="5"/>
+  <g fill="#f6d365"><circle cx="170" cy="390" r="10"/><circle cx="325" cy="445" r="10"/><circle cx="515" cy="207" r="10"/><circle cx="663" cy="293" r="10"/><circle cx="813" cy="124" r="10"/></g>
+  <g stroke="#4b504c"><path d="M0 100h960M0 260h960M0 420h960"/></g><text x="48" y="65" fill="#a7aaa5" font-family="monospace" font-size="19">PROJECT_02 / ANALYTICS</text>
+</svg>
