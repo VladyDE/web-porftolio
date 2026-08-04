@@ -79,7 +79,7 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
         <Image src={profile.portrait} alt={lang === 'es' ? `Retrato de ${profile.name}` : `Portrait of ${profile.name}`} widths={[480, 720]} sizes="(max-width: 900px) 80vw, 38vw" />
         <div class="portrait-caption">
           <span>{profile.location}</span>
-          <span>04°39′N / 74°05′W</span>
+          <span>02°54′S / 79°00′W</span>
         </div>
       </div>
       <div class="hero-index" aria-hidden="true">00</div>
@@ -109,18 +109,11 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
       </div>
       <div class="projects-grid">
         {projects.map((project, index) => (
-          <article class="project-card">
-            <a class="project-image" href={project.repoUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.openRepo} ${project.title[lang]}`}>
-              <Image src={project.image} alt={project.imageAlt[lang]} widths={[480, 720, 960]} sizes="(max-width: 760px) 100vw, 50vw" loading="lazy" />
-              <span class="project-number">0{index + 1}</span>
-              <span class="repo-cue">GitHub <Icon name="arrow" /></span>
-            </a>
+          <article class="project-card project-card-text">
+            <span class="project-number">0{index + 1}</span>
             <div class="project-body">
               <h3>{project.title[lang]}</h3>
               <p>{project.description[lang]}</p>
-              <ul class="tag-list" aria-label="Technology stack">
-                {project.stack.map((item) => <li>{item}</li>)}
-              </ul>
             </div>
           </article>
         ))}
@@ -135,7 +128,14 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
       <ul class="cert-grid">
         {certifications.map((certification) => (
           <li class="cert-card" title={`${certification.name} — ${certification.issuer}`}>
-            <Image src={certification.logo} alt={`${certification.name}, ${certification.issuer}`} loading="lazy" />
+            <a
+              href={certification.credentialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ver credencial de ${certification.name}`}
+            >
+              <Image src={certification.logo} alt={`${certification.name}, ${certification.issuer}`} loading="lazy" />
+            </a>
             <span class="sr-only">{certification.name} — {certification.issuer}</span>
           </li>
         ))}

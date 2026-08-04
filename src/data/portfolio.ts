@@ -1,11 +1,8 @@
 import type { ImageMetadata } from 'astro';
-import profileImage from '../assets/profile-placeholder.svg';
-import pipelineImage from '../assets/project-pipeline.svg';
-import analyticsImage from '../assets/project-analytics.svg';
-import lakehouseImage from '../assets/project-lakehouse.svg';
-import azureLogo from '../assets/cert-azure.svg';
-import awsLogo from '../assets/cert-aws.svg';
-import gcpLogo from '../assets/cert-gcp.svg';
+import profileImage from '../assets/foto-perfil.png';
+import databricksLogo from '../assets/databricks-data-engineer-associate.png';
+import fabricLogo from '../assets/fabric-data-engineer-associate.png';
+import azureLogo from '../assets/azure-data-fundamentals.png';
 
 export type Locale = 'es' | 'en';
 export type LocalizedText = Record<Locale, string>;
@@ -13,16 +10,13 @@ export type LocalizedText = Record<Locale, string>;
 export interface Project {
   title: LocalizedText;
   description: LocalizedText;
-  stack: string[];
-  repoUrl: string;
-  image: ImageMetadata;
-  imageAlt: LocalizedText;
 }
 
 export interface Certification {
   name: string;
   issuer: string;
   logo: ImageMetadata;
+  credentialUrl: string;
 }
 
 export interface TimelineEntry {
@@ -35,9 +29,9 @@ export interface TimelineEntry {
 
 // PLACEHOLDER CONTENT: replace this profile and every URL before publishing.
 export const profile = {
-  name: 'Your Name',
+  name: 'Vladimiro Cordero',
   role: { es: 'Ingeniero de Datos', en: 'Data Engineer' },
-  location: 'Bogotá, Colombia',
+  location: 'Cuenca, Ecuador',
   email: 'hello@example.com',
   portrait: profileImage,
   social: {
@@ -46,83 +40,110 @@ export const profile = {
   },
 };
 
-// Add or remove projects here; the grid and both languages update automatically.
 export const projects: Project[] = [
   {
-    title: { es: 'Pipeline de datos en tiempo real', en: 'Real-time data pipeline' },
-    description: {
-      es: 'Arquitectura de ingesta y transformación para procesar eventos con calidad, trazabilidad y baja latencia.',
-      en: 'Ingestion and transformation architecture for processing events with quality, traceability, and low latency.',
+    title: {
+      es: 'Plataforma de datos IoT de extremo a extremo con Databricks Lakeflow y SDP',
+      en: 'End-to-End IoT Data Platform with Databricks Lakeflow & SDP',
     },
-    stack: ['Python', 'Kafka', 'dbt', 'Airflow'],
-    repoUrl: 'https://github.com/your-username/project-one',
-    image: pipelineImage,
-    imageAlt: { es: 'Diagrama del pipeline de datos', en: 'Data pipeline diagram' },
+    description: {
+      es: 'Plataforma de datos con arquitectura lakehouse para procesar datos de sensores IoT mediante técnicas batch y streaming.',
+      en: 'Lakehouse data platform for processing IoT sensor data through batch and streaming techniques.',
+    },
   },
   {
-    title: { es: 'Plataforma analítica', en: 'Analytics platform' },
-    description: {
-      es: 'Modelado dimensional y capa semántica para convertir datos operativos en métricas confiables de negocio.',
-      en: 'Dimensional modeling and a semantic layer that turn operational data into trusted business metrics.',
+    title: {
+      es: 'Pipeline de datos financieros con Microsoft Fabric',
+      en: 'Financial Data Pipeline with Microsoft Fabric',
     },
-    stack: ['SQL', 'BigQuery', 'Looker', 'Terraform'],
-    repoUrl: 'https://github.com/your-username/project-two',
-    image: analyticsImage,
-    imageAlt: { es: 'Visualización de métricas analíticas', en: 'Analytics metrics visualization' },
+    description: {
+      es: 'Pipeline de procesamiento de datos financieros de IBM mediante la API de Vantage dentro de la plataforma analítica de Microsoft Fabric.',
+      en: 'Financial data processing pipeline using IBM’s Vantage API within the Microsoft Fabric analytics platform.',
+    },
   },
   {
-    title: { es: 'Lakehouse escalable', en: 'Scalable lakehouse' },
-    description: {
-      es: 'Procesamiento distribuido por capas con validaciones automatizadas, observabilidad y control de costos.',
-      en: 'Layered distributed processing with automated validation, observability, and cost controls.',
+    title: {
+      es: 'Pipeline de datos de viajes para una aplicación de taxis',
+      en: 'Trip Data Pipeline for a Taxi App',
     },
-    stack: ['Spark', 'Databricks', 'Delta Lake', 'Azure'],
-    repoUrl: 'https://github.com/your-username/project-three',
-    image: lakehouseImage,
-    imageAlt: { es: 'Arquitectura de capas del lakehouse', en: 'Lakehouse layered architecture' },
+    description: {
+      es: 'Pipeline de procesamiento de datos de viajes de una aplicación popular de taxis en la ciudad de Cuenca.',
+      en: 'Data processing pipeline for trips from a popular taxi app in the city of Cuenca.',
+    },
   },
 ];
 
-// Replace these example credentials and SVG logos with your three real certifications.
 export const certifications: Certification[] = [
-  { name: 'Azure Data Engineer Associate', issuer: 'Microsoft', logo: azureLogo },
-  { name: 'AWS Data Analytics Specialty', issuer: 'Amazon Web Services', logo: awsLogo },
-  { name: 'Professional Data Engineer', issuer: 'Google Cloud', logo: gcpLogo },
+  {
+    name: 'Databricks Data Engineer Associate',
+    issuer: 'Databricks',
+    logo: databricksLogo,
+    credentialUrl: 'https://credentials.databricks.com/fd5dfc9b-b6ff-4f6e-be4d-dff5e6d7b2cf#acc.pWoKlxLC',
+  },
+  {
+    name: 'Fabric Data Engineer Associate',
+    issuer: 'Microsoft',
+    logo: fabricLogo,
+    credentialUrl: 'https://learn.microsoft.com/api/credentials/share/en-us/VladimiroCordero-0449/5A96F9C610F109F6?sharingId=D2CCFBBCE4F0DFC0',
+  },
+  {
+    name: 'Azure Data Fundamentals',
+    issuer: 'Microsoft',
+    logo: azureLogo,
+    credentialUrl: 'https://learn.microsoft.com/en-us/users/vladimirocordero-0449/credentials/4badbbe0ad9df2c1',
+  },
 ];
 
-// Replace these sample roles with your real employment history.
 export const experience: TimelineEntry[] = [
   {
-    title: { es: 'Ingeniero de Datos Senior', en: 'Senior Data Engineer' },
-    organization: 'Company Name',
-    period: { es: '2024 — Presente', en: '2024 — Present' },
+    title: { es: 'Ingeniero / Analista de Datos', en: 'Data Engineer / Analyst' },
+    organization: 'Freelancer · Cuenca, Ecuador',
+    period: { es: 'Ene 2023 — Presente', en: 'Jan 2023 — Present' },
     description: {
-      es: 'Diseñé pipelines confiables y modelos analíticos que redujeron tiempos de procesamiento y mejoraron la disponibilidad de datos.',
-      en: 'Designed reliable pipelines and analytics models that reduced processing times and improved data availability.',
+      es: 'Diseño e implemento soluciones de datos de extremo a extremo para diversos sectores, procesos de ETL y consultoría en visualización de datos, creando tableros dinámicos en Power BI y Tableau.',
+      en: 'Design and implement end-to-end data solutions across different industries, ETL processes, and data visualization consulting, creating dynamic dashboards in Power BI and Tableau.',
     },
-    tags: ['Python', 'Airflow', 'Cloud'],
+    tags: ['ETL', 'Power BI', 'Tableau'],
   },
   {
-    title: { es: 'Ingeniero de Datos', en: 'Data Engineer' },
-    organization: 'Previous Company',
-    period: { es: '2022 — 2024', en: '2022 — 2024' },
+    title: { es: 'Desarrollador de Automatización de Datos (Contrato)', en: 'Data Automation Developer (Contract)' },
+    organization: 'BPONE · Quito, Ecuador',
+    period: { es: 'Sep 2025 — Dic 2025', en: 'Sep 2025 — Dec 2025' },
     description: {
-      es: 'Automaticé procesos de integración y construí datasets gobernados para equipos de analítica y producto.',
-      en: 'Automated integration processes and built governed datasets for analytics and product teams.',
+      es: 'Desarrollé flujos de carga y borrado masivo de datos para listas en SharePoint mediante peticiones batch y REST APIs. Reduje los tiempos de borrado y carga de 4 horas a 50 minutos.',
+      en: 'Developed bulk data loading and deletion flows for SharePoint lists using batch requests and REST APIs. Reduced loading and deletion times from 4 hours to 50 minutes.',
     },
-    tags: ['SQL', 'dbt', 'Data Quality'],
+    tags: ['SharePoint', 'REST APIs', 'Power Automate'],
+  },
+  {
+    title: { es: 'Científico de Datos Junior (Prácticas)', en: 'Junior Data Scientist (Internship)' },
+    organization: 'Universidad Politécnica Salesiana · Cuenca, Ecuador',
+    period: { es: 'Sep 2024 — Ene 2025', en: 'Sep 2024 — Jan 2025' },
+    description: {
+      es: 'Limpié y preparé más de 1.000 registros, mejorando la precisión de modelos de machine learning del 58% al 77%. Realicé análisis exploratorio con Python, Pandas y Matplotlib/Seaborn para encontrar patrones ocultos en los datos.',
+      en: 'Cleaned and prepared more than 1,000 records, improving machine learning model accuracy from 58% to 77%. Performed exploratory analysis with Python, Pandas, and Matplotlib/Seaborn to uncover hidden patterns in the data.',
+    },
+    tags: ['Python', 'Pandas', 'Machine Learning'],
   },
 ];
 
-// Replace this sample degree with your real academic background.
 export const education: TimelineEntry[] = [
   {
-    title: { es: 'Título universitario', en: "Bachelor's degree" },
-    organization: 'University Name',
-    period: { es: '2017 — 2022', en: '2017 — 2022' },
+    title: { es: 'MSc en Visual Analytics & Big Data', en: 'MSc in Visual Analytics & Big Data' },
+    organization: 'Universidad Internacional de La Rioja',
+    period: { es: 'Mar 2026', en: 'Mar 2026' },
     description: {
-      es: 'Formación en ingeniería, sistemas de información, bases de datos y fundamentos de computación.',
-      en: 'Education in engineering, information systems, databases, and computing fundamentals.',
+      es: 'Formación de posgrado en analítica visual, big data y toma de decisiones basada en datos.',
+      en: 'Graduate training in visual analytics, big data, and data-driven decision-making.',
+    },
+  },
+  {
+    title: { es: 'BSc en Ingeniería en Telecomunicaciones', en: 'BSc in Telecommunications Engineering' },
+    organization: 'Universidad Politécnica Salesiana',
+    period: { es: 'Mar 2025', en: 'Mar 2025' },
+    description: {
+      es: 'Formación en ingeniería de telecomunicaciones, sistemas, programación y tecnologías de datos.',
+      en: 'Training in telecommunications engineering, systems, programming, and data technologies.',
     },
   },
 ];
@@ -142,7 +163,7 @@ export const copy = {
     stats: [['03+', 'Certificaciones cloud'], ['03', 'Proyectos destacados'], ['100%', 'Mentalidad de calidad']],
     projects: 'Proyectos seleccionados',
     projectsKicker: '02 / TRABAJO',
-    projectHint: 'Selecciona una imagen para abrir el repositorio',
+    projectHint: 'Proyectos de datos y analítica aplicada',
     openRepo: 'Abrir repositorio de',
     certifications: 'Certificaciones cloud',
     certificationsKicker: '03 / CREDENCIALES',
@@ -170,7 +191,7 @@ export const copy = {
     stats: [['03+', 'Cloud certifications'], ['03', 'Featured projects'], ['100%', 'Quality mindset']],
     projects: 'Selected projects',
     projectsKicker: '02 / WORK',
-    projectHint: 'Select an image to open its repository',
+    projectHint: 'Data and applied analytics projects',
     openRepo: 'Open repository for',
     certifications: 'Cloud certifications',
     certificationsKicker: '03 / CREDENTIALS',
