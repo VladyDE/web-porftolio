@@ -27,20 +27,29 @@ export interface TimelineEntry {
   tags?: string[];
 }
 
-// PLACEHOLDER CONTENT: replace this profile and every URL before publishing.
+
 export const profile = {
   name: 'Vladimiro Cordero',
   role: { es: 'Ingeniero de Datos', en: 'Data Engineer' },
   location: 'Cuenca, Ecuador',
-  email: 'hello@example.com',
   portrait: profileImage,
   social: {
-    github: 'https://github.com/your-username',
-    linkedin: 'https://www.linkedin.com/in/your-username/',
+    github: 'https://github.com/VladyDE',
+    linkedin: 'https://linkedin.com/in/vladimiro-cordero-30856127a',
   },
 };
 
 export const projects: Project[] = [
+  {
+    title: {
+      es: 'Pipeline de datos de viajes para una aplicación de taxis',
+      en: 'Trip Data Pipeline for a Taxi App',
+    },
+    description: {
+      es: 'Pipeline de procesamiento de datos de viajes de una aplicación popular de taxis en la ciudad de Cuenca.',
+      en: 'Data processing pipeline for trips from a popular taxi app in the city of Cuenca.',
+    },
+  },
   {
     title: {
       es: 'Plataforma de datos IoT de extremo a extremo con Databricks Lakeflow y SDP',
@@ -59,16 +68,6 @@ export const projects: Project[] = [
     description: {
       es: 'Pipeline de procesamiento de datos financieros de IBM mediante la API de Vantage dentro de la plataforma analítica de Microsoft Fabric.',
       en: 'Financial data processing pipeline using IBM’s Vantage API within the Microsoft Fabric analytics platform.',
-    },
-  },
-  {
-    title: {
-      es: 'Pipeline de datos de viajes para una aplicación de taxis',
-      en: 'Trip Data Pipeline for a Taxi App',
-    },
-    description: {
-      es: 'Pipeline de procesamiento de datos de viajes de una aplicación popular de taxis en la ciudad de Cuenca.',
-      en: 'Data processing pipeline for trips from a popular taxi app in the city of Cuenca.',
     },
   },
 ];
@@ -133,17 +132,17 @@ export const education: TimelineEntry[] = [
     organization: 'Universidad Internacional de La Rioja',
     period: { es: 'Mar 2026', en: 'Mar 2026' },
     description: {
-      es: 'Formación de posgrado en analítica visual, big data y toma de decisiones basada en datos.',
-      en: 'Graduate training in visual analytics, big data, and data-driven decision-making.',
+      es: 'Formación de posgrado en analítica de datos, big data, inteligencia artificial y toma de decisiones basada en datos.',
+      en: 'Graduate training in data analytics, big data, artificial inteligence, and data-driven decision-making.',
     },
   },
   {
-    title: { es: 'BSc en Ingeniería en Telecomunicaciones', en: 'BSc in Telecommunications Engineering' },
+    title: { es: 'Ingeniería en Telecomunicaciones', en: 'BSc in Telecommunications Engineering' },
     organization: 'Universidad Politécnica Salesiana',
     period: { es: 'Mar 2025', en: 'Mar 2025' },
     description: {
-      es: 'Formación en ingeniería de telecomunicaciones, sistemas, programación y tecnologías de datos.',
-      en: 'Training in telecommunications engineering, systems, programming, and data technologies.',
+      es: 'Formación en ingeniería de telecomunicaciones, sistemas, programación, bases de datos y redes.',
+      en: 'Training in telecommunications engineering, systems, programming, databases and networks.',
     },
   },
 ];
@@ -155,24 +154,24 @@ export const copy = {
     available: 'Disponible para nuevos retos',
     nav: { about: 'Quién soy', projects: 'Proyectos', certifications: 'Certificaciones', experience: 'Trayectoria', education: 'Formación' },
     eyebrow: 'DATA SYSTEMS / PORTFOLIO 2026',
-    heroLead: 'Construyo sistemas de datos que convierten información compleja en decisiones claras.',
+    heroLead: 'Construyendo las pipelines que mantienen a las empresas de hoy en dia.',
     viewProjects: 'Ver proyectos',
     about: 'Quién soy',
     aboutKicker: '01 / PERFIL',
-    aboutText: 'Ingeniero de Datos enfocado en construir plataformas robustas, observables y escalables. Disfruto conectar arquitectura, calidad y contexto de negocio para que los datos sean realmente útiles.',
+    aboutText: 'Ingeniero de Datos con maestría en Big Data. Diseño e implemento pipelines de datos escalables para apoyar e impulsar la toma de decisiones en las empresas usando entornos cloud.',
     stats: [['03+', 'Certificaciones cloud'], ['03', 'Proyectos destacados'], ['100%', 'Mentalidad de calidad']],
-    projects: 'Proyectos seleccionados',
+    projects: 'Proyectos destacados',
     projectsKicker: '02 / TRABAJO',
     projectHint: 'Proyectos de datos y analítica aplicada',
     openRepo: 'Abrir repositorio de',
-    certifications: 'Certificaciones cloud',
+    certifications: 'Certificaciones',
     certificationsKicker: '03 / CREDENCIALES',
-    certificationText: 'Credenciales que respaldan experiencia práctica en plataformas de datos cloud.',
+    certificationText: 'Certificado por las empresas tecnológicas mas importantes del mundo.',
     experience: 'Trayectoria laboral',
     experienceKicker: '04 / EXPERIENCIA',
     education: 'Formación académica',
     educationKicker: '05 / EDUCACIÓN',
-    connect: 'Construyamos datos que muevan decisiones.',
+    connect: 'Construyamos sistemas que impulsen decisiones.',
     socialHint: 'Encuéntrame en',
     rights: 'Diseñado y construido con intención.',
     switchLabel: 'Cambiar idioma a inglés',
@@ -183,24 +182,24 @@ export const copy = {
     available: 'Open to new opportunities',
     nav: { about: 'About', projects: 'Projects', certifications: 'Certifications', experience: 'Experience', education: 'Education' },
     eyebrow: 'DATA SYSTEMS / PORTFOLIO 2026',
-    heroLead: 'I build data systems that turn complex information into clear decisions.',
+    heroLead: "Building the data pipelines that support today's businesses.",
     viewProjects: 'View projects',
     about: 'About me',
     aboutKicker: '01 / PROFILE',
-    aboutText: 'Data Engineer focused on building robust, observable, and scalable platforms. I enjoy connecting architecture, quality, and business context so data becomes genuinely useful.',
+    aboutText: 'Data engineer with a MSc in big data. I design and implement scalable data pipelines to help and drive business decisions using cloud enviroments.',
     stats: [['03+', 'Cloud certifications'], ['03', 'Featured projects'], ['100%', 'Quality mindset']],
     projects: 'Selected projects',
     projectsKicker: '02 / WORK',
     projectHint: 'Data and applied analytics projects',
     openRepo: 'Open repository for',
-    certifications: 'Cloud certifications',
+    certifications: 'Certifications',
     certificationsKicker: '03 / CREDENTIALS',
-    certificationText: 'Credentials supporting hands-on expertise across cloud data platforms.',
+    certificationText: "Certified by the world's leading tech companies.",
     experience: 'Work experience',
     experienceKicker: '04 / EXPERIENCE',
     education: 'Academic background',
     educationKicker: '05 / EDUCATION',
-    connect: 'Let’s build data that moves decisions.',
+    connect: 'Let’s build systems that move decisions.',
     socialHint: 'Find me on',
     rights: 'Designed and built with intention.',
     switchLabel: 'Cambiar idioma a español',
