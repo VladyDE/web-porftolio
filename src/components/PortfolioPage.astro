@@ -112,7 +112,17 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
           <article class="project-card project-card-text">
             <span class="project-number">0{index + 1}</span>
             <div class="project-body">
-              <h3>{project.title[lang]}</h3>
+              <h3>
+                <a
+                  class="project-title-link"
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.title[lang]} — GitHub`}
+                >
+                  {project.title[lang]}
+                </a>
+              </h3>
               <p>{project.description[lang]}</p>
             </div>
           </article>

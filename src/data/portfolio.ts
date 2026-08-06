@@ -10,6 +10,7 @@ export type LocalizedText = Record<Locale, string>;
 export interface Project {
   title: LocalizedText;
   description: LocalizedText;
+  githubUrl: string;
 }
 
 export interface Certification {
@@ -42,12 +43,13 @@ export const profile = {
 export const projects: Project[] = [
   {
     title: {
-      es: 'Pipeline de datos de viajes para una aplicación de taxis',
-      en: 'Trip Data Pipeline for a Taxi App',
+      es: 'Pipeline y app de datos de viajes para una aplicación de taxis',
+      en: 'Trip Data App and Pipeline for Taxi App',
     },
+    githubUrl: 'https://github.com/VladyDE/trip-data-pipeline',
     description: {
-      es: 'Pipeline de procesamiento de datos de viajes de una aplicación popular de taxis en la ciudad de Cuenca.',
-      en: 'Data processing pipeline for trips from a popular taxi app in the city of Cuenca.',
+      es: 'Pipeline de procesamiento de datos de viajes de una aplicación popular de taxis en la ciudad de Cuenca, Ecuador y dashboard en streamlit.',
+      en: 'Data processing pipeline for trips from a popular taxi app in the city of Cuenca, Ecuador and data app in streamlit.',
     },
   },
   {
@@ -55,6 +57,7 @@ export const projects: Project[] = [
       es: 'Plataforma de datos IoT de extremo a extremo con Databricks Lakeflow y SDP',
       en: 'End-to-End IoT Data Platform with Databricks Lakeflow & SDP',
     },
+    githubUrl: 'https://github.com/VladyDE/iot-data-platform-databricks',
     description: {
       es: 'Plataforma de datos con arquitectura lakehouse para procesar datos de sensores IoT mediante técnicas batch y streaming.',
       en: 'Lakehouse data platform for processing IoT sensor data through batch and streaming techniques.',
@@ -65,6 +68,7 @@ export const projects: Project[] = [
       es: 'Pipeline de datos financieros con Microsoft Fabric',
       en: 'Financial Data Pipeline with Microsoft Fabric',
     },
+    githubUrl: 'https://github.com/VladyDE/Financial-Pipeline-in-Microsoft-Fabric',
     description: {
       es: 'Pipeline de procesamiento de datos financieros de IBM mediante la API de Vantage dentro de la plataforma analítica de Microsoft Fabric.',
       en: 'Financial data processing pipeline using IBM’s Vantage API within the Microsoft Fabric analytics platform.',
