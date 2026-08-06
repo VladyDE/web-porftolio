@@ -1,0 +1,13 @@
+---
+import DashboardsPage from '../../../components/DashboardsPage.astro';
+import type { Locale } from '../../../data/portfolio';
+
+export function getStaticPaths() {
+  return ['es', 'en'].map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+---
+
+<DashboardsPage lang={lang} />

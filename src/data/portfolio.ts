@@ -3,6 +3,10 @@ import profileImage from '../assets/foto-perfil.png';
 import databricksLogo from '../assets/databricks-data-engineer-associate.png';
 import fabricLogo from '../assets/fabric-data-engineer-associate.png';
 import azureLogo from '../assets/azure-data-fundamentals.png';
+import bikeAccidentsDashboard from '../assets/dashboards/Accidentes de bici en Madrid (tableau).jpg';
+import eventsDashboard from '../assets/dashboards/Eventos en Madrid (Power BI).jpg';
+import iotDashboard from '../assets/dashboards/IoT Dashboard (Power BI).png';
+import taxiAppDashboard from '../assets/dashboards/TaxiApp (Streamlit).png';
 
 export type Locale = 'es' | 'en';
 export type LocalizedText = Record<Locale, string>;
@@ -11,6 +15,11 @@ export interface Project {
   title: LocalizedText;
   description: LocalizedText;
   githubUrl: string;
+}
+
+export interface Dashboard {
+  title: LocalizedText;
+  image: ImageMetadata;
 }
 
 export interface Certification {
@@ -73,6 +82,25 @@ export const projects: Project[] = [
       es: 'Pipeline de procesamiento de datos financieros de IBM mediante la API de Vantage dentro de la plataforma analítica de Microsoft Fabric.',
       en: 'Financial data processing pipeline using IBM’s Vantage API within the Microsoft Fabric analytics platform.',
     },
+  },
+];
+
+export const dashboards: Dashboard[] = [
+  {
+    title: { es: 'Accidentes de bici en Madrid (tableau)', en: 'Bike Accidents in Madrid (Tableau)' },
+    image: bikeAccidentsDashboard,
+  },
+  {
+    title: { es: 'Eventos en Madrid (Power BI)', en: 'Events in Madrid (Power BI)' },
+    image: eventsDashboard,
+  },
+  {
+    title: { es: 'IoT Dashboard (Power BI)', en: 'IoT Dashboard (Power BI)' },
+    image: iotDashboard,
+  },
+  {
+    title: { es: 'TaxiApp (Streamlit)', en: 'TaxiApp (Streamlit)' },
+    image: taxiAppDashboard,
   },
 ];
 
@@ -156,10 +184,11 @@ export const copy = {
     languageName: 'ES',
     skip: 'Saltar al contenido',
     available: 'Disponible para nuevos retos',
-    nav: { about: 'Quién soy', projects: 'Proyectos', certifications: 'Certificaciones', experience: 'Trayectoria', education: 'Formación' },
+    nav: { about: 'Quién soy', projects: 'Proyectos', dashboards: 'Dashboards', certifications: 'Certificaciones', experience: 'Trayectoria', education: 'Formación' },
     eyebrow: 'DATA SYSTEMS / PORTFOLIO 2026',
     heroLead: 'Construyendo las pipelines que mantienen a las empresas de hoy en dia.',
     viewProjects: 'Ver proyectos',
+    viewDashboards: 'Ver dashboards',
     about: 'Quién soy',
     aboutKicker: '01 / PERFIL',
     aboutText: 'Ingeniero de Datos con maestría en Big Data. Diseño e implemento pipelines de datos escalables para apoyar e impulsar la toma de decisiones en las empresas usando entornos cloud.',
@@ -167,6 +196,11 @@ export const copy = {
     projects: 'Proyectos destacados',
     projectsKicker: '02 / TRABAJO',
     projectHint: 'Proyectos de datos y analítica aplicada',
+    dashboards: 'Mi estilo de dashboards',
+    dashboardsKicker: 'VISUAL ANALYTICS / SHOWCASE',
+    dashboardsDescription: 'Algunos ejemplos de dashboards realizados en diferentes proyectos.',
+    openDashboard: 'Abrir vista ampliada de',
+    closeDashboard: 'Cerrar vista ampliada',
     openRepo: 'Abrir repositorio de',
     certifications: 'Certificaciones',
     certificationsKicker: '03 / CREDENCIALES',
@@ -184,10 +218,11 @@ export const copy = {
     languageName: 'EN',
     skip: 'Skip to content',
     available: 'Open to new opportunities',
-    nav: { about: 'About', projects: 'Projects', certifications: 'Certifications', experience: 'Experience', education: 'Education' },
+    nav: { about: 'About', projects: 'Projects', dashboards: 'Dashboards', certifications: 'Certifications', experience: 'Experience', education: 'Education' },
     eyebrow: 'DATA SYSTEMS / PORTFOLIO 2026',
     heroLead: "Building the data pipelines that support today's businesses.",
     viewProjects: 'View projects',
+    viewDashboards: 'View dashboards',
     about: 'About me',
     aboutKicker: '01 / PROFILE',
     aboutText: 'Data engineer with a MSc in big data. I design and implement scalable data pipelines to help and drive business decisions using cloud enviroments.',
@@ -195,6 +230,11 @@ export const copy = {
     projects: 'Selected projects',
     projectsKicker: '02 / WORK',
     projectHint: 'Data and applied analytics projects',
+    dashboards: 'My dashboard style',
+    dashboardsKicker: 'VISUAL ANALYTICS / SHOWCASE',
+    dashboardsDescription: 'A sample of dashboards built across multiple projects.',
+    openDashboard: 'Open enlarged view of',
+    closeDashboard: 'Close enlarged view',
     openRepo: 'Open repository for',
     certifications: 'Certifications',
     certificationsKicker: '03 / CREDENTIALS',
