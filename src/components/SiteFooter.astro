@@ -1,0 +1,24 @@
+---
+import { copy, profile, type Locale } from '../data/portfolio';
+import Icon from './Icon.astro';
+
+interface Props { lang: Locale }
+
+const { lang } = Astro.props;
+const t = copy[lang];
+---
+
+<footer class="site-footer section-shell">
+  <div>
+    <p class="section-kicker">OUTPUT / CONNECT</p>
+    <h2>{t.connect}</h2>
+  </div>
+  <div class="social-block">
+    <span>{t.socialHint}</span>
+    <div class="social-links">
+      <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" size={24} /></a>
+      <a href={profile.social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Icon name="github" size={24} /></a>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© {new Date().getFullYear()} {profile.name}</span><span>{t.rights}</span></div>
+</footer>

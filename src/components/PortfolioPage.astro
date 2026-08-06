@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from './Icon.astro';
+import SiteFooter from './SiteFooter.astro';
+import SiteHeader from './SiteHeader.astro';
 import {
   certifications,
   copy,
@@ -17,7 +19,6 @@ interface Props { lang: Locale }
 
 const { lang } = Astro.props;
 const t = copy[lang];
-const otherLang: Locale = lang === 'es' ? 'en' : 'es';
 const pageTitle = `${profile.name} — ${profile.role[lang]}`;
 const pageDescription = lang === 'es'
   ? 'Portafolio de ingeniería de datos: proyectos, experiencia, formación y certificaciones cloud.'
@@ -35,29 +36,7 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
   <a class="skip-link" href="#main">{t.skip}</a>
   <div class="ambient-grid" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="brand" href={`/${lang}/`} aria-label={`${profile.name} — ${profile.role[lang]}`}>
-      <span class="brand-mark"><Icon name="database" size={18} /></span>
-      <span>{profile.name}</span>
-    </a>
-    <nav class="primary-nav" aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
-      <a href="#about">{t.nav.about}</a>
-      <a href="#projects">{t.nav.projects}</a>
-      <a href="#certifications">{t.nav.certifications}</a>
-      <a href="#experience">{t.nav.experience}</a>
-      <a href="#education">{t.nav.education}</a>
-    </nav>
-    <a class="language-switch" href={`/${otherLang}/`} data-language={otherLang} aria-label={t.switchLabel}>
-      <span>{t.languageName}</span>
-      <span class="switch-track" aria-hidden="true"><span></span></span>
-      <span>{otherLang.toUpperCase()}</span>
-    </a>
-  </header>
-  <a class="mobile-language-switch" href={`/${otherLang}/`} data-language={otherLang} aria-label={t.switchLabel}>
-    <span>{t.languageName}</span>
-    <span class="switch-track" aria-hidden="true"><span></span></span>
-    <span>{otherLang.toUpperCase()}</span>
-  </a>
+  <SiteHeader lang={lang} currentPage="home" />
 
   <main id="main">
     <section class="hero section-shell" aria-labelledby="hero-title">
@@ -69,9 +48,14 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
           <strong>{profile.role[lang]}</strong>
         </h1>
         <p class="hero-lead hero-step">{t.heroLead}</p>
-        <a class="button hero-step" href="#projects">
-          {t.viewProjects}<Icon name="arrow" />
-        </a>
+        <div class="hero-actions hero-step">
+          <a class="button button-secondary" href="#projects">
+            {t.viewProjects}<Icon name="arrow" />
+          </a>
+          <a class="button button-secondary" href={`/${lang}/dashboards/`}>
+            {t.viewDashboards}<Icon name="arrow" />
+          </a>
+        </div>
       </div>
 
       <div class="portrait-panel hero-step">
@@ -188,26 +172,9 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
     </section>
   </main>
 
-  <footer class="site-footer section-shell">
-    <div>
-      <p class="section-kicker">OUTPUT / CONNECT</p>
-      <h2>{t.connect}</h2>
-    </div>
-    <div class="social-block">
-      <span>{t.socialHint}</span>
-      <div class="social-links">
-        <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" size={24} /></a>
-        <a href={profile.social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Icon name="github" size={24} /></a>
-      </div>
-    </div>
-    <div class="footer-bottom"><span>© {new Date().getFullYear()} {profile.name}</span><span>{t.rights}</span></div>
-  </footer>
+  <SiteFooter lang={lang} />
 
   <script is:inline>
-    document.querySelectorAll('[data-language]').forEach((link) => {
-      link.addEventListener('click', () => localStorage.setItem('portfolio-language', link.getAttribute('data-language')));
-    });
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {

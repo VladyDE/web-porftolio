@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets';
+import { copy, dashboards, profile, type Locale } from '../data/portfolio';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from './SiteFooter.astro';
+import SiteHeader from './SiteHeader.astro';
+
+interface Props { lang: Locale }
+
+const { lang } = Astro.props;
+const t = copy[lang];
+const pageTitle = `${t.dashboards} — ${profile.name}`;
+const pageDescription = t.dashboardsDescription;
+---
+
+<BaseLayout lang={lang} title={pageTitle} description={pageDescription} canonicalPath={`/${lang}/dashboards/`}>
+  <a class="skip-link" href="#main">{t.skip}</a>
+  <div class="ambient-grid dashboard-ambient-grid" aria-hidden="true"></div>
+
+  <SiteHeader lang={lang} currentPage="dashboards" />
+
+  <main id="main">
+    <section class="dashboard-showcase section-shell" aria-labelledby="dashboards-title">
+      <div class="dashboard-heading reveal">
+        <p class="section-kicker">{t.dashboardsKicker}</p>
+        <h1 id="dashboards-title">{t.dashboards}</h1>
+        <p>{t.dashboardsDescription}</p>
+      </div>
+
+      <ul class="dashboard-gallery" aria-label={t.dashboards}>
+        {dashboards.map((dashboard, index) => {
+          const dialogId = `dashboard-dialog-${index}`;
+          const titleId = `dashboard-title-${index}`;
+          const dashboardTitle = dashboard.title[lang];
+          return (
+            <li class="dashboard-gallery-item reveal">
+              <button
+                class="dashboard-card"
+                type="button"
+                data-dashboard-trigger={dialogId}
+                aria-controls={dialogId}
+                aria-haspopup="dialog"
+                aria-label={`${t.openDashboard} ${dashboardTitle}`}
+              >
+                <Image
+                  src={dashboard.image}
+                  alt={dashboardTitle}
+                  widths={[480, 720, 1180]}
+                  sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 980px) calc(100vw - 40px), 58vw"
+                  loading="lazy"
+                />
+                <span class="dashboard-card-scrim" aria-hidden="true"></span>
+                <span class="dashboard-card-index" aria-hidden="true">0{index + 1}</span>
+                <span class="dashboard-card-title">{dashboardTitle}</span>
+                <span class="dashboard-card-cue" aria-hidden="true">VIEW / +</span>
+              </button>
+
+              <dialog id={dialogId} class="dashboard-dialog" aria-labelledby={titleId}>
+                <div class="dashboard-dialog-header">
+                  <p id={titleId}>{dashboardTitle}</p>
+                  <button class="dashboard-dialog-close" type="button" data-dashboard-close aria-label={t.closeDashboard}>×</button>
+                </div>
+                <div class="dashboard-dialog-visual">
+                  <Image src={dashboard.image} alt={dashboardTitle} widths={[720, 1180, 1600]} sizes="(max-width: 700px) calc(100vw - 48px), 1200px" />
+                </div>
+              </dialog>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  </main>
+
+  <SiteFooter lang={lang} />
+
+  <script is:inline>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+    document.querySelectorAll('[data-dashboard-trigger]').forEach((trigger) => {
+      const dialogId = trigger.getAttribute('data-dashboard-trigger');
+      const dialog = dialogId ? document.getElementById(dialogId) : null;
+      if (!(dialog instanceof HTMLDialogElement)) return;
+
+      trigger.addEventListener('click', () => dialog.showModal());
+      dialog.querySelector('[data-dashboard-close]')?.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+      dialog.addEventListener('close', () => trigger.focus());
+    });
+  </script>
+</BaseLayout>
