@@ -78,11 +78,6 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
       </div>
       <div class="about-content">
         <p class="about-lead">{t.aboutText}</p>
-        <div class="stats-grid">
-          {t.stats.map(([value, label]) => (
-            <div class="stat"><strong>{value}</strong><span>{label}</span></div>
-          ))}
-        </div>
       </div>
     </section>
 
