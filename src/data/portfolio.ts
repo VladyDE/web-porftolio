@@ -170,7 +170,7 @@ export const copy = {
     openRepo: 'Abrir repositorio de',
     certifications: 'Certificaciones',
     certificationsKicker: '03 / CREDENCIALES',
-    certificationText: 'Certificado por las empresas tecnológicas mas importantes del mundo.',
+    certificationText: 'Certificado por las empresas líderes del mercado.',
     experience: 'Trayectoria laboral',
     experienceKicker: '04 / EXPERIENCIA',
     education: 'Formación académica',
