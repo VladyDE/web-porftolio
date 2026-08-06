@@ -52,7 +52,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero h1 { margin: 0; font-family: var(--font-display); font-size: clamp(4rem, 8.8vw, 8.4rem); line-height: .78; letter-spacing: -.075em; font-stretch: condensed; }
 .hero h1 span, .hero h1 strong { display: block; }
 .hero h1 span { color: var(--text); font-size: .38em; line-height: 1.2; letter-spacing: -.035em; }
-.hero h1 strong { color: var(--accent); font-weight: 780; text-transform: uppercase; }
+.hero h1 strong { color: var(--accent); font-size: .90em; font-weight: 780; text-transform: uppercase; }
 .hero-lead { max-width: 660px; margin: 42px 0 32px; color: #d6d7d3; font-size: clamp(1.08rem, 1.7vw, 1.35rem); line-height: 1.5; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 40px; min-height: 54px; padding: 0 20px; color: var(--accent-ink); background: var(--accent); border: 1px solid var(--accent); font-family: var(--font-mono); font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; transition: transform .25s var(--ease), box-shadow .25s, background .25s; }
 .button:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 rgba(246,211,101,.2); }
@@ -95,8 +95,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .project-image:hover img { transform: scale(1.025); filter: brightness(1.08); }
 .project-number { position: absolute; top: 14px; left: 14px; padding: 6px 9px; color: var(--accent-ink); background: var(--accent); font-family: var(--font-mono); font-size: .64rem; font-weight: 600; }
 .repo-cue { position: absolute; right: 14px; bottom: 14px; display: flex; align-items: center; gap: 13px; padding: 8px 10px; color: var(--text); background: rgba(21,22,21,.88); font-family: var(--font-mono); font-size: .66rem; text-transform: uppercase; }
+.project-card-text { position: relative; min-height: 230px; padding: 28px; border: 1px solid var(--line); background: var(--surface); }
+.project-card-text .project-body { padding-top: 52px; }
 .project-body { padding-top: 24px; }
 .project-body h3, .timeline-body h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.55rem, 2.6vw, 2.25rem); line-height: 1.15; letter-spacing: -.035em; }
+.project-title-link { text-decoration: none; transition: color .25s; }
+.project-title-link:hover { color: var(--accent); }
 .project-body p, .timeline-body > p:last-of-type { margin: 16px 0 22px; color: var(--muted); }
 .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .tag-list li { padding: 5px 9px; color: var(--muted); border: 1px solid var(--line); font-family: var(--font-mono); font-size: .62rem; text-transform: uppercase; }
@@ -108,7 +112,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .cert-card { position: relative; min-height: 190px; display: grid; place-items: center; padding: 22px; border: 1px solid var(--line); background: var(--surface); transition: transform .25s var(--ease), border-color .25s, background .25s; }
 .cert-card::before { content: ''; position: absolute; top: 10px; left: 10px; width: 8px; height: 8px; border-top: 1px solid var(--accent); border-left: 1px solid var(--accent); }
 .cert-card:hover { transform: translateY(-5px); border-color: var(--line-bright); background: var(--surface-raised); }
-.cert-card img { width: min(100%, 240px); }
+.cert-card a { display: grid; place-items: center; width: 100%; }
+.cert-card img { width: min(100%, 260px); height: 155px; object-fit: contain; }
 
 .timeline { border-top: 1px solid var(--line); }
 .timeline-item { display: grid; grid-template-columns: 48px minmax(140px, .55fr) minmax(0, 1.45fr); gap: 26px; padding: 40px 0; border-bottom: 1px solid var(--line); }
