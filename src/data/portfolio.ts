@@ -186,7 +186,7 @@ export const copy = {
     available: 'Disponible para nuevos retos',
     nav: { about: 'Quién soy', projects: 'Proyectos', dashboards: 'Dashboards', certifications: 'Certificaciones', experience: 'Trayectoria', education: 'Formación' },
     eyebrow: 'DATA SYSTEMS / PORTFOLIO 2026',
-    heroLead: 'Construyendo las pipelines que mantienen a las empresas de hoy en dia.',
+    heroLead: 'Construyendo los pipelines que mantienen a las empresas de hoy en dia.',
     viewProjects: 'Ver proyectos',
     viewDashboards: 'Ver dashboards',
     about: 'Quién soy',

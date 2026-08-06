@@ -59,7 +59,6 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
       </div>
 
       <div class="portrait-panel hero-step">
-        <div class="panel-meta"><span>INPUT_01</span><span>PORTRAIT.JPG</span></div>
         <Image src={profile.portrait} alt={lang === 'es' ? `Retrato de ${profile.name}` : `Portrait of ${profile.name}`} widths={[480, 720]} sizes="(max-width: 900px) 80vw, 38vw" />
         <div class="portrait-caption">
           <span>{profile.location}</span>
