@@ -49,8 +49,8 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
         </h1>
         <p class="hero-lead hero-step">{t.heroLead}</p>
         <div class="hero-actions hero-step">
-          <a class="button button-secondary" href="#projects">
-            {t.viewProjects}<Icon name="arrow" />
+          <a class="button button-secondary" href={`/${lang}/services/`}>
+            {t.viewServices}<Icon name="arrow" />
           </a>
           <a class="button button-secondary" href={`/${lang}/dashboards/`}>
             {t.viewDashboards}<Icon name="arrow" />
