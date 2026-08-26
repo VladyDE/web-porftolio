@@ -17,6 +17,11 @@ export interface Project {
   githubUrl: string;
 }
 
+export interface Service {
+  title: LocalizedText;
+  description: LocalizedText;
+}
+
 export interface Dashboard {
   title: LocalizedText;
   image: ImageMetadata;
@@ -81,6 +86,59 @@ export const projects: Project[] = [
     description: {
       es: 'Pipeline de procesamiento de datos financieros de IBM mediante la API de Vantage dentro de la plataforma analítica de Microsoft Fabric.',
       en: 'Financial data processing pipeline using IBM’s Vantage API within the Microsoft Fabric analytics platform.',
+    },
+  },
+];
+
+export const services: Service[] = [
+  {
+    title: {
+      es: 'Reportería automatizada e inteligencia de negocios',
+      en: 'Automated Reporting & Business Intelligence',
+    },
+    description: {
+      es: 'Automatizo procesos repetitivos de reportería y convierto datos sin procesar en dashboards e indicadores confiables. El servicio puede incluir extracción, transformación, modelado, actualizaciones programadas e informes en Power BI.',
+      en: 'Automate repetitive reporting processes and transform raw business data into reliable dashboards and KPIs. This service can include data extraction, transformation, modeling, scheduled refreshes, and Power BI reporting.',
+    },
+  },
+  {
+    title: {
+      es: 'Integración y centralización de datos',
+      en: 'Data Integration & Centralization',
+    },
+    description: {
+      es: 'Conecto y consolido datos de sistemas ERP, archivos de Excel, APIs, bases de datos SQL Server, SharePoint y plataformas cloud en un entorno centralizado y confiable para análisis y reportería.',
+      en: 'Connect and consolidate data from multiple sources such as ERP systems, Excel files, APIs, SQL Server databases, SharePoint, and cloud platforms into a centralized and reliable data environment for analytics and reporting.',
+    },
+  },
+  {
+    title: {
+      es: 'Calidad y conciliación de datos',
+      en: 'Data Quality & Reconciliation',
+    },
+    description: {
+      es: 'Mejoro la confiabilidad de los datos detectando duplicados, valores faltantes, registros inconsistentes y problemas de integridad referencial. También implemento reglas de validación y monitoreo para evitar que datos defectuosos lleguen a reportes u otros sistemas.',
+      en: 'Improve the reliability of business data by detecting duplicates, missing values, inconsistent records, referential integrity issues, and other data quality problems. Automated validation rules and monitoring can be implemented to prevent bad data from reaching reports or downstream systems.',
+    },
+  },
+  {
+    title: {
+      es: 'Automatización y modernización de pipelines de datos',
+      en: 'Data Pipeline Automation & Modernization',
+    },
+    description: {
+      es: 'Reemplazo procesos de datos manuales, repetitivos o frágiles con pipelines automatizados y mantenibles. Esto puede incluir ingestas programadas, transformaciones, cargas incrementales, monitoreo, manejo de errores y modernización de flujos ETL heredados.',
+      en: 'Replace manual, repetitive, or fragile data processes with automated and maintainable pipelines. This can include scheduled ingestion, transformations, incremental loads, monitoring, error handling, and modernization of legacy ETL workflows.',
+    },
+  },
+  {
+    title: {
+      es: 'Plataformas modernas de datos',
+      en: 'Modern Data Platforms',
+    },
+    description: {
+      es: 'Diseño e implemento plataformas analíticas escalables con Microsoft Fabric, Databricks, Azure, SQL Server y arquitecturas modernas lakehouse o warehouse para organizaciones que necesitan una base sólida para analítica, reportería y futuras iniciativas de inteligencia artificial o machine learning.',
+      en: 'Design and implement scalable analytics platforms using Microsoft Fabric, Databricks, Azure, SQL Server, and modern lakehouse or warehouse architectures. This service is intended for organizations that need a stronger data foundation for analytics, reporting, and future AI or machine learning initiatives.',
     },
   },
 ];
@@ -184,10 +242,10 @@ export const copy = {
     languageName: 'ES',
     skip: 'Saltar al contenido',
     available: 'Disponible para nuevos retos',
-    nav: { about: 'Quién soy', projects: 'Proyectos', dashboards: 'Dashboards', certifications: 'Certificaciones', experience: 'Trayectoria', education: 'Formación' },
+    nav: { about: 'Quién soy', services: 'Servicios', dashboards: 'Dashboards', certifications: 'Certificaciones', experience: 'Trayectoria', education: 'Formación' },
     eyebrow: 'DATA SYSTEMS / PORTFOLIO 2026',
     heroLead: 'Construyendo los pipelines que mantienen a las empresas de hoy en dia.',
-    viewProjects: 'Ver proyectos',
+    viewServices: 'Servicios',
     viewDashboards: 'Ver dashboards',
     about: 'Quién soy',
     aboutKicker: '01 / PERFIL',
@@ -198,6 +256,10 @@ export const copy = {
     dashboards: 'Mi estilo de dashboards',
     dashboardsKicker: 'VISUAL ANALYTICS / SHOWCASE',
     dashboardsDescription: 'Algunos ejemplos de dashboards realizados en diferentes proyectos.',
+    services: 'Servicios de datos',
+    servicesKicker: 'DATA SERVICES / CAPACIDADES',
+    servicesDescription: 'Convierto procesos manuales y datos dispersos en sistemas confiables, automatizados y preparados para impulsar mejores decisiones.',
+    serviceLabel: 'SERVICIO',
     openDashboard: 'Abrir vista ampliada de',
     closeDashboard: 'Cerrar vista ampliada',
     openRepo: 'Abrir repositorio de',
@@ -217,10 +279,10 @@ export const copy = {
     languageName: 'EN',
     skip: 'Skip to content',
     available: 'Open to new opportunities',
-    nav: { about: 'About', projects: 'Projects', dashboards: 'Dashboards', certifications: 'Certifications', experience: 'Experience', education: 'Education' },
+    nav: { about: 'About', services: 'Services', dashboards: 'Dashboards', certifications: 'Certifications', experience: 'Experience', education: 'Education' },
     eyebrow: 'DATA SYSTEMS / PORTFOLIO 2026',
     heroLead: "Building the data pipelines that support today's businesses.",
-    viewProjects: 'View projects',
+    viewServices: 'Services',
     viewDashboards: 'View dashboards',
     about: 'About me',
     aboutKicker: '01 / PROFILE',
@@ -231,6 +293,10 @@ export const copy = {
     dashboards: 'My dashboard style',
     dashboardsKicker: 'VISUAL ANALYTICS / SHOWCASE',
     dashboardsDescription: 'A sample of dashboards built across multiple projects.',
+    services: 'Data services',
+    servicesKicker: 'DATA SERVICES / CAPABILITIES',
+    servicesDescription: 'I turn manual processes and scattered data into reliable, automated systems built to support better decisions.',
+    serviceLabel: 'SERVICE',
     openDashboard: 'Open enlarged view of',
     closeDashboard: 'Close enlarged view',
     openRepo: 'Open repository for',

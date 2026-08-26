@@ -11,8 +11,9 @@ interface Props {
 
 const { lang, title, description, canonicalPath } = Astro.props;
 const canonical = new URL(canonicalPath, Astro.site);
-const alternateEs = new URL('/es/', Astro.site);
-const alternateEn = new URL('/en/', Astro.site);
+const localizedSuffix = canonicalPath.match(/^\/(?:es|en)(\/.*)$/)?.[1];
+const alternateEs = new URL(localizedSuffix ? `/es${localizedSuffix}` : '/es/', Astro.site);
+const alternateEn = new URL(localizedSuffix ? `/en${localizedSuffix}` : '/en/', Astro.site);
 ---
 
 <!doctype html>

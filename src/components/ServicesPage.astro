@@ -1,0 +1,70 @@
+---
+import { copy, profile, services, type Locale } from '../data/portfolio';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from './SiteFooter.astro';
+import SiteHeader from './SiteHeader.astro';
+
+interface Props { lang: Locale }
+
+const { lang } = Astro.props;
+const t = copy[lang];
+const pageTitle = `${t.services} — ${profile.name}`;
+const pageDescription = t.servicesDescription;
+---
+
+<BaseLayout lang={lang} title={pageTitle} description={pageDescription} canonicalPath={`/${lang}/services/`}>
+  <a class="skip-link" href="#main">{t.skip}</a>
+  <div class="ambient-grid services-ambient-grid" aria-hidden="true"></div>
+
+  <SiteHeader lang={lang} currentPage="services" />
+
+  <main id="main">
+    <section class="services-showcase section-shell" aria-labelledby="services-title">
+      <div class="services-heading reveal">
+        <div class="services-heading-copy">
+          <p class="section-kicker">{t.servicesKicker}</p>
+          <h1 id="services-title">{t.services}</h1>
+        </div>
+        <div class="services-intro">
+          <p>{t.servicesDescription}</p>
+        </div>
+      </div>
+
+      <ol class="services-grid" aria-label={t.services}>
+        {services.map((service, index) => {
+          const serviceNumber = String(index + 1).padStart(2, '0');
+          return (
+            <li class="service-grid-item reveal">
+              <article class="service-card">
+                <div class="service-card-meta" aria-hidden="true">
+                  <span>{t.serviceLabel} / {serviceNumber}</span>
+                  <span>DATA_SYS</span>
+                </div>
+                <span class="service-number" aria-hidden="true">{serviceNumber}</span>
+                <div class="service-card-copy">
+                  <h2>{service.title[lang]}</h2>
+                  <p>{service.description[lang]}</p>
+                </div>
+              </article>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  </main>
+
+  <SiteFooter lang={lang} />
+
+  <script is:inline>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</BaseLayout>

@@ -4,17 +4,23 @@ import Icon from './Icon.astro';
 
 interface Props {
   lang: Locale;
-  currentPage: 'home' | 'dashboards';
+  currentPage: 'home' | 'dashboards' | 'services';
 }
 
 const { lang, currentPage } = Astro.props;
 const t = copy[lang];
 const otherLang: Locale = lang === 'es' ? 'en' : 'es';
 const isDashboardPage = currentPage === 'dashboards';
+const isServicesPage = currentPage === 'services';
 const homePath = `/${lang}/`;
 const dashboardPath = `/${lang}/dashboards/`;
-const otherPath = isDashboardPage ? `/${otherLang}/dashboards/` : `/${otherLang}/`;
-const sectionPath = (section: string) => isDashboardPage ? `${homePath}${section}` : section;
+const servicesPath = `/${lang}/services/`;
+const otherPath = isDashboardPage
+  ? `/${otherLang}/dashboards/`
+  : isServicesPage
+    ? `/${otherLang}/services/`
+    : `/${otherLang}/`;
+const sectionPath = (section: string) => currentPage === 'home' ? section : `${homePath}${section}`;
 ---
 
 <header class="site-header">
@@ -24,7 +30,7 @@ const sectionPath = (section: string) => isDashboardPage ? `${homePath}${section
   </a>
   <nav class="primary-nav" aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
     <a href={sectionPath('#about')}>{t.nav.about}</a>
-    <a href={sectionPath('#projects')}>{t.nav.projects}</a>
+    <a href={servicesPath} aria-current={isServicesPage ? 'page' : undefined}>{t.nav.services}</a>
     <a href={dashboardPath} aria-current={isDashboardPage ? 'page' : undefined}>{t.nav.dashboards}</a>
     <a href={sectionPath('#certifications')}>{t.nav.certifications}</a>
     <a href={sectionPath('#experience')}>{t.nav.experience}</a>
