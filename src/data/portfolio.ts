@@ -45,7 +45,10 @@ export interface TimelineEntry {
 
 export const profile = {
   name: 'Vladimiro Cordero',
-  role: { es: 'Ingeniero de Datos', en: 'Data Engineer' },
+  role: {
+    es: 'Soluciones en Analítica e Ingeniería de Datos',
+    en: 'Data Analytics and Engineering Solutions',
+  },
   location: 'Cuenca, Ecuador',
   portrait: profileImage,
   social: {
@@ -183,39 +186,6 @@ export const certifications: Certification[] = [
   },
 ];
 
-export const experience: TimelineEntry[] = [
-  {
-    title: { es: 'Ingeniero / Analista de Datos', en: 'Data Engineer / Analyst' },
-    organization: 'Freelancer · Cuenca, Ecuador',
-    period: { es: 'Ene 2023 — Presente', en: 'Jan 2023 — Present' },
-    description: {
-      es: 'Diseño e implemento soluciones de datos de extremo a extremo para diversos sectores, procesos de ETL y consultoría en visualización de datos, creando tableros dinámicos en Power BI y Tableau.',
-      en: 'Design and implement end-to-end data solutions across different industries, ETL processes, and data visualization consulting, creating dynamic dashboards in Power BI and Tableau.',
-    },
-    tags: ['ETL', 'Power BI', 'Tableau'],
-  },
-  {
-    title: { es: 'Desarrollador de Automatización de Datos (Contrato)', en: 'Data Automation Developer (Contract)' },
-    organization: 'BPONE · Quito, Ecuador',
-    period: { es: 'Sep 2025 — Dic 2025', en: 'Sep 2025 — Dec 2025' },
-    description: {
-      es: 'Desarrollé flujos de carga y borrado masivo de datos para listas en SharePoint mediante peticiones batch y REST APIs. Reduje los tiempos de borrado y carga de 4 horas a 50 minutos.',
-      en: 'Developed bulk data loading and deletion flows for SharePoint lists using batch requests and REST APIs. Reduced loading and deletion times from 4 hours to 50 minutes.',
-    },
-    tags: ['SharePoint', 'REST APIs', 'Power Automate'],
-  },
-  {
-    title: { es: 'Científico de Datos Junior (Prácticas)', en: 'Junior Data Scientist (Internship)' },
-    organization: 'Universidad Politécnica Salesiana · Cuenca, Ecuador',
-    period: { es: 'Sep 2024 — Ene 2025', en: 'Sep 2024 — Jan 2025' },
-    description: {
-      es: 'Limpié y preparé más de 1.000 registros, mejorando la precisión de modelos de machine learning del 58% al 77%. Realicé análisis exploratorio con Python, Pandas y Matplotlib/Seaborn para encontrar patrones ocultos en los datos.',
-      en: 'Cleaned and prepared more than 1,000 records, improving machine learning model accuracy from 58% to 77%. Performed exploratory analysis with Python, Pandas, and Matplotlib/Seaborn to uncover hidden patterns in the data.',
-    },
-    tags: ['Python', 'Pandas', 'Machine Learning'],
-  },
-];
-
 export const education: TimelineEntry[] = [
   {
     title: { es: 'MSc en Visual Analytics & Big Data', en: 'MSc in Visual Analytics & Big Data' },
@@ -242,14 +212,14 @@ export const copy = {
     languageName: 'ES',
     skip: 'Saltar al contenido',
     available: 'Disponible para nuevos retos',
-    nav: { about: 'Quién soy', services: 'Servicios', dashboards: 'Dashboards', certifications: 'Certificaciones', experience: 'Trayectoria', education: 'Formación' },
+    nav: { about: 'Quién soy', services: 'Servicios', dashboards: 'Dashboards', certifications: 'Certificaciones', education: 'Formación' },
     eyebrow: 'DATA SYSTEMS / PORTFOLIO 2026',
-    heroLead: 'Construyendo los pipelines que mantienen a las empresas de hoy en dia.',
+    heroLead: 'Optimizando procesos de datos en las empresas de hoy en dia.',
     viewServices: 'Servicios',
     viewDashboards: 'Ver dashboards',
     about: 'Quién soy',
     aboutKicker: '01 / PERFIL',
-    aboutText: 'Ingeniero de Datos con maestría en Big Data. Diseño e implemento pipelines de datos escalables para apoyar e impulsar la toma de decisiones en las empresas usando entornos cloud.',
+    aboutText: 'Ingeniero y Analista de Datos con maestría en Big Data. Ayudo a empresas a centralizar, automatizar y convertir sus datos en información confiable para tomar decisiones, utilizando desde SQL Server y Power BI hasta Microsoft Fabric y Databricks según la complejidad real del negocio.',
     projects: 'Proyectos destacados',
     projectsKicker: '02 / TRABAJO',
     projectHint: 'Proyectos de datos y analítica aplicada',
@@ -266,10 +236,8 @@ export const copy = {
     certifications: 'Certificaciones',
     certificationsKicker: '03 / CREDENCIALES',
     certificationText: 'Certificado por las empresas líderes del mercado.',
-    experience: 'Trayectoria laboral',
-    experienceKicker: '04 / EXPERIENCIA',
     education: 'Formación académica',
-    educationKicker: '05 / EDUCACIÓN',
+    educationKicker: '04 / EDUCACIÓN',
     connect: 'Construyamos sistemas que impulsen decisiones.',
     socialHint: 'Encuéntrame en',
     rights: 'Diseñado y construido con intención.',
@@ -279,14 +247,14 @@ export const copy = {
     languageName: 'EN',
     skip: 'Skip to content',
     available: 'Open to new opportunities',
-    nav: { about: 'About', services: 'Services', dashboards: 'Dashboards', certifications: 'Certifications', experience: 'Experience', education: 'Education' },
+    nav: { about: 'About', services: 'Services', dashboards: 'Dashboards', certifications: 'Certifications', education: 'Education' },
     eyebrow: 'DATA SYSTEMS / PORTFOLIO 2026',
-    heroLead: "Building the data pipelines that support today's businesses.",
+    heroLead: "Optimizing data processes for today's businesses.",
     viewServices: 'Services',
     viewDashboards: 'View dashboards',
     about: 'About me',
     aboutKicker: '01 / PROFILE',
-    aboutText: 'Data engineer with a MSc in big data. I design and implement scalable data pipelines to help and drive business decisions using cloud enviroments.',
+    aboutText: "Data Engineer and Analyst with an MSc in Big Data. I help companies centralize, automate, and turn their data into reliable information for decision-making, using everything from SQL Server and Power BI to Microsoft Fabric and Databricks according to the business's actual complexity.",
     projects: 'Selected projects',
     projectsKicker: '02 / WORK',
     projectHint: 'Data and applied analytics projects',
@@ -303,10 +271,8 @@ export const copy = {
     certifications: 'Certifications',
     certificationsKicker: '03 / CREDENTIALS',
     certificationText: "Certified by the world's leading tech companies.",
-    experience: 'Work experience',
-    experienceKicker: '04 / EXPERIENCE',
     education: 'Academic background',
-    educationKicker: '05 / EDUCATION',
+    educationKicker: '04 / EDUCATION',
     connect: 'Let’s build systems that move decisions.',
     socialHint: 'Find me on',
     rights: 'Designed and built with intention.',
