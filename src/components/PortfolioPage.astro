@@ -8,7 +8,6 @@ import {
   certifications,
   copy,
   education,
-  experience,
   profile,
   projects,
   type Locale,
@@ -21,8 +20,8 @@ const { lang } = Astro.props;
 const t = copy[lang];
 const pageTitle = `${profile.name} — ${profile.role[lang]}`;
 const pageDescription = lang === 'es'
-  ? 'Portafolio de ingeniería de datos: proyectos, experiencia, formación y certificaciones cloud.'
-  : 'Data engineering portfolio: projects, experience, education, and cloud certifications.';
+  ? 'Portafolio de soluciones de analítica e ingeniería de datos: proyectos, formación y certificaciones cloud.'
+  : 'Data analytics and engineering solutions portfolio: projects, education, and cloud certifications.';
 
 const timeline = (items: TimelineEntry[]) => items.map((item) => ({
   ...item,
@@ -128,24 +127,6 @@ const timeline = (items: TimelineEntry[]) => items.map((item) => ({
           </li>
         ))}
       </ul>
-    </section>
-
-    <section id="experience" class="content-section section-shell reveal" aria-labelledby="experience-title">
-      <div class="section-heading"><p class="section-kicker">{t.experienceKicker}</p><h2 id="experience-title">{t.experience}</h2></div>
-      <div class="timeline">
-        {timeline(experience).map((item, index) => (
-          <article class="timeline-item">
-            <div class="timeline-marker"><span>0{index + 1}</span></div>
-            <div class="timeline-date">{item.localizedPeriod}</div>
-            <div class="timeline-body">
-              <p class="organization">{item.organization}</p>
-              <h3>{item.localizedTitle}</h3>
-              <p>{item.localizedDescription}</p>
-              {item.tags && <ul class="tag-list">{item.tags.map((tag) => <li>{tag}</li>)}</ul>}
-            </div>
-          </article>
-        ))}
-      </div>
     </section>
 
     <section id="education" class="content-section section-shell reveal" aria-labelledby="education-title">
